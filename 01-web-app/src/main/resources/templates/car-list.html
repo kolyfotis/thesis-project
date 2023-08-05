@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cars list</title>
+</head>
+<body>
+<div class="container">
+
+  <h3>Cars List</h3>
+  <hr>
+
+  <table class="table table-bordered table-striped">
+    <thead class="table-dark">
+    <tr>
+      <th>Id</th>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Body Type</th>
+      <th>Fuel Type</th>
+      <th>Price</th>
+      <th>Horsepower</th>
+      <th>Gearbox</th>
+      <th>Door Number</th>
+      <th>Color</th>
+      <th>Image</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="car : ${cars}">
+
+      <td th:text="${car.id}" />
+      <td th:text="${car.make}" />
+      <td th:text="${car.model}" />
+      <td th:text="${car.bodyType}" />
+      <td th:text="${car.fuelType}" />
+      <td th:text="${car.price}" />
+      <td th:text="${car.horsepower}" />
+      <td th:text="${car.gearbox}" />
+      <td th:text="${car.doorNumber}" />
+      <td th:text="${car.color}" />
+      <td th:text="${car.image}" />
+
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+</body>
+</html>
