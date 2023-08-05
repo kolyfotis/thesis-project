@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<!--  <script type="text/javascript" src="webjars/jquery/jquery.min.js"></script>-->
+</head>
+<body>
+
+  <div class="container-fluid">
+    <h1>Welcome, <span sec:authentication="name"></span>!</h1>
+    <div th:if="${#authentication}">
+      <form action="#" th:action="@{/logout}" method="POST">
+        <input type="submit" value="Logout" />
+      </form>
+    </div>
+<!--    <button id="myButton" class="btn btn-primary">Click me!</button>-->
+<!--    <hr>-->
+  </div>
+
+<!--<script>-->
+<!--  $(document).ready(function () {-->
+<!--      $("#myButton").click(function (e) {-->
+<!--         alert("You have clicked me!");-->
+<!--      });-->
+<!--  });-->
+<!--</script>-->
+
+</body>
+</html>

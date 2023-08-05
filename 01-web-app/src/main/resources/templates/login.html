@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+  <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card mt-5">
+        <div class="card-header">
+          <h3 class="text-center">Login</h3>
+        </div>
+        <div class="card-body">
+          <form action="" th:action="@{/authenticateTheUser}" method="POST" class="form-horizontal">
+            <div class="form-group">
+              <div class="col-xs-15">
+                <div>
+                  <!--Check for login error -->
+                  <div th:if="${param.error}">
+                    <div class="alert alert-danger col-xs-offset-1 col-xs-10">
+                      Invalid username and password.
+                    </div>
+                  </div>
+                  <!--Check for logout -->
+                  <div th:if="${param.logout}">
+                    <div class="alert alert-success col-xs-offset-1 col-xs-10">
+                      You have been logged out.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="username" class="mb-2">Username</label>
+              <input type="text" class="mb-2 form-control" id="username" placeholder="Enter your username" name="username">
+            </div>
+            <div class="form-group">
+              <label for="password" class="mb-2">Password</label>
+              <input type="password" class="mb-2 form-control" id="password" placeholder="Enter your password" name="password">
+            </div>
+            <div class="form-group">
+              <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+              <a th:href="@{/cars}" class="btn btn-secondary btn-block">Continue without account</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
