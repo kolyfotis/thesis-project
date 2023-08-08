@@ -27,6 +27,7 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
       .requestMatchers("/admin/**").hasRole("ADMIN")
       .requestMatchers("/webjars/**").permitAll()
       .requestMatchers("/cars/**").permitAll()
+      .requestMatchers("/images/**").permitAll()
       .anyRequest().authenticated()
   ).formLogin(form ->
     form
