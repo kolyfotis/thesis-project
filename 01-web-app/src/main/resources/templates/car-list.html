@@ -1,50 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <title>Cars list</title>
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="/css/main.css" />
+  <link rel="stylesheet" type="text/css" href="/css/cards.css" />
 </head>
 <body>
-<div class="container">
+<div class="container my-4 mx-lg-auto">
 
-  <h3>Cars List</h3>
+  <h3 class="text-center">Car List</h3>
   <hr>
-
-  <table class="table table-bordered table-striped">
-    <thead class="table-dark">
-    <tr>
-      <th>Id</th>
-      <th>Make</th>
-      <th>Model</th>
-      <th>Body Type</th>
-      <th>Fuel Type</th>
-      <th>Price</th>
-      <th>Horsepower</th>
-      <th>Gearbox</th>
-      <th>Door Number</th>
-      <th>Color</th>
-      <th>Image</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    <tr th:each="car : ${cars}">
-
-      <td th:text="${car.id}"></td>
-      <td th:text="${car.make}"></td>
-      <td th:text="${car.model}"></td>
-      <td th:text="${car.bodyType}"></td>
-      <td th:text="${car.fuelType}"></td>
-      <td th:text="${car.price}"></td>
-      <td th:text="${car.horsepower}"></td>
-      <td th:text="${car.gearbox}"></td>
-      <td th:text="${car.doorNumber}"></td>
-      <td th:text="${car.color}"></td>
-      <td th:text="${car.image}"></td>
-
-    </tr>
-    </tbody>
-  </table>
+  <div class="container" id="container-cards">
+    <div class="row" id="row-cards">
+      <div th:each="car : ${cars}">
+        <a href="" >
+          <div id="card-product">
+            <div id="card-top">
+              <span th:text="${car.make} + ' ' + ${car.model}"></span>
+              <span th:text="${car.price} + ' €'"></span>
+            </div>
+            <div id="card-img">
+              <img th:src="${car.image}" alt="Missing image"/>
+            </div>
+            <div id="card-details" >
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
 
 </div>
 </body>
