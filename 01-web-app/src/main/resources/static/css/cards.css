@@ -27,7 +27,12 @@
 .card-top {
   display: flex;
   justify-content: space-between;
-  margin: 0.5vh 1vh 1.5vh 1vh;
+  margin: 0 1vh 1vh 1vh;
+}
+
+.card-top span {
+  font-weight: bold;
+  font-size: 1.5rem;
 }
 
 .card-middle {
@@ -36,13 +41,10 @@
   margin: 0 1vh;
 }
 
-.card-img {
-}
-
 .card-product img {
   height: inherit;
   width: inherit;
-  border-radius: 5px 5px 0 0;
+  border-radius: 5px;
   position: relative;
   object-fit: cover;
 }
