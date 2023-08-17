@@ -22,7 +22,6 @@ public class Car {
 @Column(name = "id")
 private Integer id;
 
-
 @Column(name = "make")
 @NotBlank(message = "Make is mandatory")
 private String make;
@@ -65,4 +64,7 @@ private String color;
 
 @Column(name = "image", columnDefinition = "TEXT")
 private String image;
+
+@Column(name = "engine_size")
+private Short engineSize;
 }
