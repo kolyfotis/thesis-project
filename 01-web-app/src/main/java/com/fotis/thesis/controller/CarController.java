@@ -15,7 +15,7 @@ import java.util.Optional;
 @RequestMapping("/cars")
 public class CarController {
 
-private CarService carService;
+private final CarService carService;
 
 public CarController(CarService theCarService) {
   carService = theCarService;
