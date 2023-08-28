@@ -1,0 +1,74 @@
+.car-model {
+  text-align: center;
+  font-weight: bold;
+  font-size: 3em;
+}
+
+.car-model span {
+  position: relative;
+  top: -0.2em;
+}
+
+.car-img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  width: auto;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  object-fit: cover;
+}
+
+.button-back {
+  text-decoration: none !important;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.details span {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+.price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.price text {
+  text-align: end;
+  font-size: 2.2rem;
+  font-weight: 700 !important;
+  flex: 2; /* move to the end */
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#details-tag {
+  font-size: 1.5rem;
+}
+
+hr {
+  border: 0;
+  clear: both;
+  display: block;
+  width: 90%;
+  background-color: #000;
+  height: 2px;
+}
+
+.detail {
+  margin: 0.5rem 0;
+  width: 50%;
+}
+
+.detail span {
+  display: flex;
+  justify-content: space-between;
+}

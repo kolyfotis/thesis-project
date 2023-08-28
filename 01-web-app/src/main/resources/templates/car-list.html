@@ -15,7 +15,7 @@
   <div class="container container-cards">
     <div class="row row-cards">
       <div class="card-outline" th:each="car : ${cars}">
-        <a href="" >
+        <a th:href="'/cars/' + ${car.id}" >
           <div class="card-product">
             <div class="card-top">
               <span th:text="${car.make} + ' ' + ${car.model}"></span>

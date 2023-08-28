@@ -1,11 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" type="text/css" href="/css/main.css" />
-  <title th:text="${car.make} + ' ' + ${car.model}"></title>
+  <link rel="stylesheet" type="text/css" href="/css/detail.css" />
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+  <title th:text="'Buy ' + ${car.make} + ' ' + ${car.model} + ' for ' + ${#numbers.formatDecimal(car.price, 0, 'COMMA', 0, 'POINT')} + ' €'">
+  </title>
 </head>
 <body>
-
+<div class="container my-3 mx-lg-5 mb-5">
+  <div>
+    <a class="button-back" href="/cars">< Back</a>
+  </div>
+  <div class="car-model">
+    <span th:text="${car.make} + ' ' + ${car.model}"></span>
+  </div>
+  <div>
+    <img class="car-img" th:src="'../' + ${car.image}" alt="Missing image"/>
+  </div>
+  <div class="price mt-3">
+    <text th:text="${#numbers.formatDecimal(car.price, 0, 'COMMA', 0, 'POINT')} + ' €'">
+    </text>
+  </div>
+  <div class="details mb-3">
+    <span id="details-tag">Details</span>
+    <hr>
+    <div class="detail">
+      <span>
+        <text>Body type</text>
+        <text th:text="${car.bodyType}"></text>
+      </span>
+    </div>
+    <div class="detail">
+      <span>
+        <text>Engine size</text>
+        <text th:text="${car.engineSize} > 0 ? ${#numbers.formatInteger(car.engineSize, 3, 'POINT')} + ' cc' : '-'">
+        </text>
+      </span>
+    </div>
+    <div class="detail">
+      <span>
+        <text>Gearbox</text>
+        <text th:text="${car.gearbox}"></text>
+      </span>
+    </div>
+    <div class="detail">
+      <span>
+        <text>Fuel type</text>
+        <text th:text="${car.fuelType}"></text>
+      </span>
+    </div>
+    <div class="detail">
+      <span>
+        <text>Horsepower</text>
+        <text th:text="${car.horsepower} + ' hp'"></text>
+      </span>
+    </div>
+    <div class="detail">
+      <span>
+        <text>Doors</text>
+        <text th:text="${car.doorNumber}"></text>
+      </span>
+    </div>
+  </div>
+</div>
 </body>
 </html>
