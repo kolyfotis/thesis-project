@@ -29,6 +29,8 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
       .requestMatchers("/cars/**").permitAll()
       .requestMatchers("/images/**").permitAll()
       .requestMatchers("/css/**").permitAll()
+      .requestMatchers("/js/**").permitAll()
+      .requestMatchers("/userTimeSpent/**").permitAll()
       .anyRequest().authenticated()
   ).formLogin(form ->
     form
