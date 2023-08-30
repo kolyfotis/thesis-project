@@ -2,6 +2,8 @@ package com.fotis.thesis.controller;
 
 import com.fotis.thesis.entity.Car;
 import com.fotis.thesis.service.CarService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,6 +52,10 @@ public String carDetails(Model model, @PathVariable String id) {
   model.addAttribute("car", (
       car.orElseGet(Car::new))
   );
+
+  Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+  String username = authentication.getName();
+  model.addAttribute("userName", username);
 
   return "car-detail";
 }
