@@ -2,6 +2,12 @@
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
+  <meta name="carId" th:content="${car.id}">
+  <meta name="userName" th:content="${userName}">
+  <meta name="_csrf" th:content="${_csrf.token}"/>
+  <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+  <script type="text/javascript" src="../js/car-view-time.js">
+  </script>
   <link rel="stylesheet" type="text/css" href="/css/main.css" />
   <link rel="stylesheet" type="text/css" href="/css/detail.css" />
   <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
