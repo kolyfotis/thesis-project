@@ -5,6 +5,7 @@ import com.fotis.thesis.entity.UserData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -26,6 +27,11 @@ public UserData save(UserData userData) {
 public Optional<UserData> findByUsernameAndFieldNameAndFieldValue(
     String username, String fieldName, String fieldValue) {
   return userDataRepository.findByUsernameAndFieldNameAndFieldValue(username, fieldName, fieldValue);
+}
+
+@Override
+public List<UserData> findByUsernameAndFieldName(String username, String fieldName) {
+  return userDataRepository.findByUsernameAndFieldName(username, fieldName);
 }
 
 }
