@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CarService {
-List<Car> findAll();
+List<Car> findAllByOrderByMakeAscModelAsc();
 
 Optional<Car> findById(Integer id);
 }

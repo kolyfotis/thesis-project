@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public class CarServiceJpaImpl implements CarService {
-private CarRepository carRepository;
+private final CarRepository carRepository;
 
 @Autowired
 public CarServiceJpaImpl(CarRepository theCarRepository) {
@@ -18,8 +18,8 @@ public CarServiceJpaImpl(CarRepository theCarRepository) {
 }
 
 @Override
-public List<Car> findAll() {
-  return carRepository.findAll();
+public List<Car> findAllByOrderByMakeAscModelAsc() {
+  return carRepository.findAllByOrderByMakeAscModelAsc();
 }
 
 @Override

@@ -26,7 +26,7 @@ public CarController(CarService theCarService) {
 @GetMapping()
 public String listCars(Model model) {
 
-  List<Car> cars = carService.findAll();
+  List<Car> cars = carService.findAllByOrderByMakeAscModelAsc();
 
   model.addAttribute("cars", cars);
 
