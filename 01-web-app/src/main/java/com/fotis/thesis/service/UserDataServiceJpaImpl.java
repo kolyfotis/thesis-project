@@ -2,6 +2,7 @@ package com.fotis.thesis.service;
 
 import com.fotis.thesis.dao.UserDataRepository;
 import com.fotis.thesis.entity.UserData;
+import com.fotis.thesis.util.UserDataNormalizedUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,16 @@ public UserDataServiceJpaImpl(UserDataRepository userDataRepository) {
 @Override
 public UserData save(UserData userData) {
   return userDataRepository.save(userData);
+}
+
+@Override
+public List<UserData> saveAll(List<UserData> userData) {
+  return userDataRepository.saveAll(userData);
+}
+
+@Override
+public List<UserData> normalizeUserData(List<UserData> userData) {
+  return UserDataNormalizedUtil.normalizeUserData(userData, this);
 }
 
 @Override

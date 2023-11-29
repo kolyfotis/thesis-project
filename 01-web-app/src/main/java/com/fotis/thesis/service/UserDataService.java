@@ -8,6 +8,10 @@ import java.util.Optional;
 public interface UserDataService {
 UserData save(UserData userData);
 
+List<UserData> saveAll(List<UserData> userData);
+
+List<UserData> normalizeUserData(List<UserData> userData);
+
 Optional<UserData> findByUsernameAndFieldNameAndFieldValue(
     String username, String fieldName, String fieldValue);
 

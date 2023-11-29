@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 
 @Entity
@@ -30,5 +31,8 @@ private String fieldValue;
 
 @Column(name = "time_spent")
 private BigInteger timeSpent;
+
+@Column(name = "normalized_time_spent")
+private BigDecimal normalizedTimeSpent;
 
 }

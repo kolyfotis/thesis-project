@@ -8,6 +8,7 @@ import com.fotis.thesis.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,19 +19,15 @@ import java.util.Optional;
 public class UserTimeSpentServiceJpaImpl implements UserTimeSpentService {
 private final CarService carService;
 private final UserDataService userDataService;
-private final UserDataNormalizedService userDataNormalizedService;
 private final UserService userService;
 
 public static final BigInteger MINIMUM_TIME_TO_TRACK_IN_MILLISECONDS = BigInteger.valueOf(5 * 1000);
 public static final BigInteger MAXIMUM_TIME_TO_TRACK_IN_MILLISECONDS = BigInteger.valueOf(15 * 60 * 1000);
 
 @Autowired
-public UserTimeSpentServiceJpaImpl(CarService carService, UserDataService userDataService,
-                                   UserDataNormalizedService userDataNormalizedService,
-                                   UserService userService) {
+public UserTimeSpentServiceJpaImpl(CarService carService, UserDataService userDataService, UserService userService) {
   this.carService = carService;
   this.userDataService = userDataService;
-  this.userDataNormalizedService = userDataNormalizedService;
   this.userService = userService;
 }
 
@@ -49,7 +46,6 @@ public UserTimeSpentServiceJpaImpl(CarService carService, UserDataService userDa
  * @param   userTimeSpentOnCar  a POJO that contains username, carId and time spent viewing the car in milliseconds
  * @see     com.fotis.thesis.util.CarUtil#getTrackedColumnNamesAndValues(Car)
  * @see     com.fotis.thesis.service.UserDataServiceJpaImpl#findByUsernameAndFieldNameAndFieldValue(String, String, String)
- * @see     com.fotis.thesis.service.UserDataNormalizedServiceJpaImpl#normalizeUserData(List)
  *
  * */
 @Override
@@ -85,12 +81,12 @@ public void saveUserData(UserTimeSpentOnCar userTimeSpentOnCar) {
         userDataRow.get().setTimeSpent(userDataRow.get().getTimeSpent().add(timeSpentInMillis));
         userDataList.add(userDataService.save(userDataRow.get()));
       } else {
-        UserData userData = new UserData(0, username, fieldName, fieldValue, timeSpentInMillis);
+        UserData userData = new UserData(0, username, fieldName, fieldValue, timeSpentInMillis, BigDecimal.ZERO);
         userDataList.add(userDataService.save(userData));
       }
     }
 
-    userDataNormalizedService.saveAll(userDataNormalizedService.normalizeUserData(userDataList));
+    userDataService.saveAll(userDataService.normalizeUserData(userDataList));
   }
 }
 }
