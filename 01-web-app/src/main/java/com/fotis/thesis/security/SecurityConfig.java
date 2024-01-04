@@ -36,6 +36,7 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     form
       .loginPage("/showLoginPage")
       .loginProcessingUrl("/authenticateTheUser")
+      .defaultSuccessUrl("/cars", true)
       .permitAll()
   ).logout(LogoutConfigurer::permitAll
   );
