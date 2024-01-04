@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile</title>
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="/css/main.css" />
+</head>
+<body>
+<div th:replace="~{header :: site-header}"></div>
+<div class="container-fluid mt-5 pt-2 mx-3">
+  <h1>Greetings, <span sec:authentication="name"></span>!
+    Here are some cars you might be interested in.</h1>
+  <div>
+    <h3>TODO: List recommended cars</h3>
+  </div>
+</div>
+</body>
+</html>
