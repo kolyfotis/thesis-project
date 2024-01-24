@@ -3,7 +3,7 @@ insert into cars (
 values
     ('Audi','A4','Sedan','Gasoline',38000,150,'Manual',5,'Black', 1984,
         'images/car-pictures/audi-a4-black.jpeg'),
-    ('BMW','420','Coupe','Diesel',71000,190,'Manual',2,'Grey', 1995,
+    ('BMW','420','Coupe','Diesel',71000,190,'Manual',3,'Grey', 1995,
         'images/car-pictures/bmw-420-grey.jpeg'),
     ('Ford','Focus','Sedan','Gasoline',47000,280,'Manual',5,'White', 2261,
         'images/car-pictures/ford-focus-white.jpeg'),
