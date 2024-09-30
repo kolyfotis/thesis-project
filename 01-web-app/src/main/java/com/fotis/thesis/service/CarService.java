@@ -9,4 +9,6 @@ public interface CarService {
 List<Car> findAllByOrderByMakeAscModelAsc();
 
 Optional<Car> findById(Integer id);
+
+List<Car> findAllById(List<Integer> idList);
 }

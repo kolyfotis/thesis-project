@@ -26,4 +26,9 @@ public List<Car> findAllByOrderByMakeAscModelAsc() {
 public Optional<Car> findById(Integer id) {
   return carRepository.findById(id);
 }
+
+@Override
+public List<Car> findAllById(List<Integer> idList) {
+  return carRepository.findAllById(idList);
+}
 }
